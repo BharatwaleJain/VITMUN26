@@ -1,0 +1,20 @@
+import clientPromise from "../../../../../lib/mongodb";
+import { NextResponse, NextRequest } from "next/server";
+export async function POST(req: NextRequest) {
+    try {
+        console.log(req.headers);
+        const client = await clientPromise;
+        const db = client.db("delegateallotments");
+        const internalUpdate = await db.collection("internal").updateMany({}, { $set: { lunch: false } });
+        const externalUpdate = await db.collection("external").updateMany({}, { $set: { lunch: false } });
+        return NextResponse.json({
+            success: true,
+            message: "Lunch status reset for all delegates.",
+            internalUpdated: internalUpdate.modifiedCount,
+            externalUpdated: externalUpdate.modifiedCount,
+        });
+    } catch (error) {
+        console.error("Error updating lunch status:", error);
+        return NextResponse.json({ success: false, error: "Failed to reset lunch status" }, { status: 500 });
+    }
+}

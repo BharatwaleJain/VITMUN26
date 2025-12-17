@@ -1,0 +1,48 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - vitmun-network
+    develop:
+      watch:
+        - path: ./package.json
+          action: rebuild
+        - path: ./next.config.js
+          action: rebuild
+        - path: ./package-lock.json
+          action: rebuild
+        - path: .
+          target: /app
+          action: sync
+  mongo:
+    image: mongo:6.0
+    container_name: vitmun-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    env_file:
+      - .env
+    networks:
+      - vitmun-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+networks:
+  vitmun-network:
+    driver: bridge
+volumes:
+  mongo-data:
