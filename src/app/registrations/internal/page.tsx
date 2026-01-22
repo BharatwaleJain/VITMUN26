@@ -12,6 +12,7 @@ const lora = Lora({
     variable: "--font-lora",
 });
 const InternalDelegateForm = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         registration_number: "",
         participant_name: "",
@@ -145,11 +146,13 @@ const InternalDelegateForm = () => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (isSubmitting)
+            return;
+        setIsSubmitting(true);
         if (!validateForm()) {
-            console.log("Validation failed");
+            setIsSubmitting(false);
             return;
         }
-        console.log("Validation passed");
         try {
             const response = await fetch("/api/submit-delegate-form-int", {
                 method: "POST",
@@ -169,7 +172,6 @@ const InternalDelegateForm = () => {
                     router.push("/");
                 }, 2000);
             } else {
-                console.log("Form submission failed with status:", response.status);
                 if (response.status === 400) {
                     toast({
                         variant: "destructive",
@@ -190,6 +192,7 @@ const InternalDelegateForm = () => {
                         description: data.error || "Please check your input and try again.",
                     });
                 }
+                setIsSubmitting(false);
             }
         } catch (error) {
             toast({
@@ -199,6 +202,7 @@ const InternalDelegateForm = () => {
                     "An error occurred while submitting the form. Please try again.",
             });
             console.error("Error:", error);
+            setIsSubmitting(false);
         }
     };
     return (
@@ -422,9 +426,10 @@ const InternalDelegateForm = () => {
                     <div className="text-center">
                         <Button
                             type="submit"
-                            className="bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040]"
+                            disabled={isSubmitting}
+                            className={`bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040] ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
-                            PRESENT AND VOTING
+                            {isSubmitting ? "Submitting..." : "PRESENT AND VOTING"}
                         </Button>
                     </div>
                 </form>

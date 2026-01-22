@@ -2,7 +2,6 @@ import clientPromise from "../../../../../lib/mongodb";
 import { NextResponse, NextRequest } from "next/server";
 export async function POST(req: NextRequest) {
     try {
-        console.log(req.headers);
         const client = await clientPromise;
         const db = client.db("delegateallotments");
         const internalUpdate = await db.collection("internal").updateMany({}, { $set: { lunch: false } });

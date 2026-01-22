@@ -61,8 +61,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" suppressHydrationWarning className={`${roboto.variable} ${bebasNeue.variable}`}>
-            <body>
+        <html lang="en">
+            <body className={`${roboto.variable} ${bebasNeue.variable}`}>
                 {children}
                 <Toaster />
             </body>

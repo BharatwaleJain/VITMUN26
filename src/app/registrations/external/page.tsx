@@ -12,6 +12,7 @@ const lora = Lora({
     variable: "--font-lora",
 });
 const ExternalDelegateForm = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         participant_name: "",
         gender: "",
@@ -145,12 +146,15 @@ const ExternalDelegateForm = () => {
             }
         });
         setFormData(updatedFormData);
-        console.log("Validation Status:", isValid);
         return isValid;
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (isSubmitting)
+            return;
+        setIsSubmitting(true);
         if (!validateForm()) {
+            setIsSubmitting(false);
             return;
         }
         try {
@@ -192,6 +196,7 @@ const ExternalDelegateForm = () => {
                         description: data.error || "Please check your input and try again.",
                     });
                 }
+                setIsSubmitting(false);
             }
         } catch (error) {
             toast({
@@ -201,6 +206,7 @@ const ExternalDelegateForm = () => {
                     "An error occurred while submitting the form. Please try again.",
             });
             console.error("Error:", error);
+            setIsSubmitting(false);
         }
     };
     return (
@@ -448,9 +454,10 @@ const ExternalDelegateForm = () => {
                     <div className="text-center">
                         <Button
                             type="submit"
-                            className="bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF004080]"
+                            disabled={isSubmitting}
+                            className={`bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040] ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
-                            PRESENT AND VOTING
+                            {isSubmitting ? "Submitting..." : "PRESENT AND VOTING"}
                         </Button>
                     </div>
                 </form>

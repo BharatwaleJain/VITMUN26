@@ -32,6 +32,8 @@ export default function AddDelegation() {
     };
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (loading)
+            return;
         setLoading(true);
         try {
             const response = await fetch("/api/admin/delegations", {
@@ -47,11 +49,11 @@ export default function AddDelegation() {
                 router.push("/");
             } else {
                 alert(result.error || "Failed to add delegation.");
+                setLoading(false);
             }
         } catch (error) {
             console.error("Error adding delegation:", error);
             alert("An error occurred while adding the delegation.");
-        } finally {
             setLoading(false);
         }
     };

@@ -16,6 +16,7 @@ const lora = Lora({
 });
 export default function DelegationForm() {
     const router = useRouter();
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         organisationName: "",
         headDelegate: "",
@@ -51,6 +52,9 @@ export default function DelegationForm() {
     };
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
+        if (isSubmitting)
+            return;
+        setIsSubmitting(true);
         const errors = validateForm();
         if (Object.keys(errors).length > 0) {
             toast({
@@ -58,6 +62,7 @@ export default function DelegationForm() {
                 title: "Error",
                 description: Object.values(errors)[0],
             });
+            setIsSubmitting(false);
             return;
         }
         try {
@@ -82,6 +87,7 @@ export default function DelegationForm() {
                     title: "Submission Failed",
                     description: "Something went wrong, please try again.",
                 });
+                setIsSubmitting(false);
             }
         } catch (error) {
             console.error("Error:", error);
@@ -90,6 +96,7 @@ export default function DelegationForm() {
                 title: "Error",
                 description: "An unexpected error occurred. Please try again.",
             });
+            setIsSubmitting(false);
         }
     };
     return (
@@ -197,9 +204,10 @@ export default function DelegationForm() {
                     <div className="text-center">
                         <Button
                             type="submit"
-                            className="bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040]"
+                            disabled={isSubmitting}
+                            className={`bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040] ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
-                            Request
+                            {isSubmitting ? "Submitting..." : "Request"}
                         </Button>
                     </div>
                 </form>

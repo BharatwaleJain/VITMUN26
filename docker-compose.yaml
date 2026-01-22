@@ -4,8 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "4000:4000"
-    restart: unless-stopped
+      - "4001:4001"
+    restart: always
     depends_on:
       mongo:
         condition: service_healthy
@@ -13,6 +13,11 @@ services:
       - .env
     networks:
       - vitmun-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4001"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     develop:
       watch:
         - path: ./package.json
@@ -29,6 +34,7 @@ services:
     container_name: vitmun-mongo
     ports:
       - "27017:27017"
+    restart: always
     volumes:
       - mongo-data:/data/db
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
