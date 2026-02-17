@@ -10,17 +10,16 @@ import {
     TableCell,
 } from "@/components/ui/table";
 const DelegateTable = () => {
-    const [activeTab, setActiveTab] = useState<string>("UNGA-DISEC");
+    const [activeTab, setActiveTab] = useState<string>("UNGA");
     const [isMobileView, setIsMobileView] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const tabs = [
-        { title: "UNGA-DISEC", value: "UNGA-DISEC" },
-        { title: "UNGA-SOCHUM", value: "UNGA-SOCHUM" },
+        { title: "UNGA", value: "UNGA" },
+        { title: "SOCHUM", value: "SOCHUM" },
         { title: "UNSC", value: "UNSC" },
-        { title: "ECOSOC", value: "ECOSOC" },
+        { title: "PEC-YALTA", value: "PEC-YALTA" },
         { title: "CHAOS", value: "CHAOS" },
         { title: "AIPPM", value: "AIPPM" },
-        { title: "SPECIALISED", value: "SPECIALISED" },
     ];
     useEffect(() => {
         const handleResize = () => {

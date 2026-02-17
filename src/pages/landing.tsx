@@ -146,7 +146,7 @@ const Landing = ({ onLoad }) => {
                                 width={0}
                                 height={0}
                                 sizes="100vw"
-                                className="mt-4 h-12 w-auto inline select-none mx-auto"
+                                className="mt-4 h-8 md:h-12 w-auto inline select-none mx-auto"
                             />
                         </div>
                     </div>

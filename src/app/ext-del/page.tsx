@@ -62,7 +62,7 @@ export default function AddDelegation() {
             className="min-h-screen flex items-center justify-center px-4"
             style={{
                 backgroundImage:
-                    'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0)), url("/back.svg")',
+                    'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0)), url("/back.png")',
                 backgroundRepeat: "repeat",
                 backgroundSize: "100% auto",
                 backgroundAttachment: "fixed",

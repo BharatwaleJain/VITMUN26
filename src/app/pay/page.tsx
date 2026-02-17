@@ -1,4 +1,4 @@
 import { redirect } from "next/navigation";
 export default function PayRedirect() {
-    redirect("/coming-soon");
+    redirect("https://events.vit.ac.in/events/vitmun");
 }

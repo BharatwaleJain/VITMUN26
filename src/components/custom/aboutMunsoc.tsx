@@ -35,7 +35,7 @@ const AboutMunsoc = () => {
                         viewport={{ once: true }}
                     >
                         <Image
-                            src="/img1.svg"
+                            src="/img1.jpg"
                             alt="VITMUN 1"
                             draggable="false"
                             width={600}
@@ -53,7 +53,7 @@ const AboutMunsoc = () => {
                         viewport={{ once: true }}
                     >
                         <Image
-                            src="/img2.svg"
+                            src="/img2.jpg"
                             alt="VITMUN 2"
                             draggable="false"
                             width={600}
@@ -75,9 +75,9 @@ const AboutMunsoc = () => {
                         <p className={`text-sm md:text-lg leading-relaxed ${latoThin.className}`}>
                             Choose VITMUN'26 for immersive simulations, skill refinement and cultural awareness. Elevate your leadership potential amidst a diverse cohort.
                             <br />
-                            With extensive exposure and industry engagement, it’s more than just a conference.
+                            With extensive exposure and industry engagement, it's more than just a conference.
                             <br />
-                            It’s a pathway to global impact and personal growth.
+                            It's a pathway to global impact and personal growth.
                         </p>
                     </motion.div>
                 </div>

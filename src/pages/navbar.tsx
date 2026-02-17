@@ -43,7 +43,7 @@ export default function Navbar() {
                     scrolled
                         ? {
                             backgroundImage:
-                                'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url("/back.svg")',
+                                'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url("/back.png")',
                             backgroundRepeat: "repeat",
                             backgroundSize: "100% auto",
                             backgroundAttachment: "fixed",
@@ -101,7 +101,7 @@ export default function Navbar() {
                             <Link href="/allotments">ALLOTMENTS</Link>
                         </li>
                         <li>
-                            <Link href="/pay" passHref>
+                            <Link href="/pay" target="_blank" rel="noopener noreferrer" passHref>
                                 <button className={`bg-[#FF0040] w-[10vw] text-[3vh] p-2 text-white rounded-md hover:bg-[#C73C42] transition font-bebas shadow-md shadow-[#FF004080]`}>
                                     PAY NOW
                                 </button>

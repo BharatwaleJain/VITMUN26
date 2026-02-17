@@ -325,8 +325,7 @@ const InternalDelegateForm = () => {
                             </Button>
                         </div>
                         <p className="text-lg md:text-xl mb-1 font-bold">
-                            Registration fee per delegate is Rs. 1900 (inclusive of GST).
-                            Payment link will be mailed once allotment is confirmed
+                            Registration fee per delegate is Rs. 1800 (inclusive of GST). Payment link will be mailed once allotment is confirmed.
                         </p>
                         {[1, 2, 3].map((pref) => (
                             <div
@@ -346,13 +345,12 @@ const InternalDelegateForm = () => {
                                     <option value="" disabled>
                                         Select Committee
                                     </option>
-                                    <option value="UNGA-DISEC">UNGA-DISEC</option>
-                                    <option value="UNGA-SOCHUM">UNGA-SOCHUM</option>
+                                    <option value="UNGA">UNGA</option>
+                                    <option value="SOCHUM">SOCHUM</option>
                                     <option value="UNSC">UNSC</option>
-                                    <option value="ECOSOC">ECOSOC</option>
+                                    <option value="PEC-YALTA">PEC-YALTA</option>
                                     <option value="CHAOS">CHAOS</option>
                                     <option value="AIPPM">AIPPM</option>
-                                    <option value="SPECIALISED">SPECIALISED</option>
                                 </select>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                     {[1, 2, 3].map((allotment) => (

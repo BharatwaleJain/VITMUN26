@@ -12,9 +12,9 @@
     }
   },
   {
-    "name": "ECOSOC",
-    "imageWhite": "/committee/ecosoc.png",
-    "imageBlack": "/committee/ecosoc2.png",
+    "name": "PEC-YALTA",
+    "imageWhite": "/committee/pec-yalta.png",
+    "imageBlack": "/committee/pec-yalta2.png",
     "data": "TBD",
     "agenda": "TBD",
     "board": {
@@ -48,9 +48,9 @@
     }
   },
   {
-    "name": "DISEC",
-    "imageWhite": "/committee/disec.png",
-    "imageBlack": "/committee/disec2.png",
+    "name": "UNGA",
+    "imageWhite": "/committee/unga.png",
+    "imageBlack": "/committee/unga2.png",
     "data": "TBD",
     "agenda": "TBD",
     "board": {
@@ -63,18 +63,6 @@
     "name": "AIPPM",
     "imageWhite": "/committee/aippm.png",
     "imageBlack": "/committee/aippm2.png",
-    "data": "TBD",
-    "agenda": "TBD",
-    "board": {
-      "Chairperson": "TBD",
-      "Vice-Chairperson": "TBD",
-      "Director": "TBD"
-    }
-  },
-  {
-    "name": "SPECIALISED",
-    "imageWhite": "/committee/specialised.png",
-    "imageBlack": "/committee/specialised2.png",
     "data": "TBD",
     "agenda": "TBD",
     "board": {

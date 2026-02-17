@@ -104,7 +104,7 @@ const AdminPage = () => {
     const [selectedCommitteeForEdit, setSelectedCommitteeForEdit] = useState<string>("");
     const [showCustomPortfolio, setShowCustomPortfolio] = useState(false);
     const [customPortfolioValue, setCustomPortfolioValue] = useState("");
-    const ALL_COMMITTEES = ["UNGA-DISEC", "UNGA-SOCHUM", "UNSC", "ECOSOC", "CHAOS", "AIPPM", "SPECIALISED"];
+    const ALL_COMMITTEES = ["UNGA", "SOCHUM", "UNSC", "PEC-YALTA", "CHAOS", "AIPPM"];
     const getCommitteesFromPreferences = (delegate: Delegate): string[] => {
         const prefs = delegate.committee_preferences;
         if (!prefs || Array.isArray(prefs)) {
@@ -422,7 +422,7 @@ const AdminPage = () => {
     }
     if (!isAuthenticated) {
         return (
-            <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url("/back.svg")', backgroundRepeat: 'repeat', backgroundSize: '100% auto', backgroundAttachment: 'fixed', backgroundPosition: 'top center' }}>
+            <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url("/back.png")', backgroundRepeat: 'repeat', backgroundSize: '100% auto', backgroundAttachment: 'fixed', backgroundPosition: 'top center' }}>
                 <div className="w-full max-w-md">
                     <div className="text-center mb-8">
                         <Image
@@ -490,7 +490,7 @@ const AdminPage = () => {
         <div
             className="min-h-screen"
             style={{
-                backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url("/back.svg")',
+                backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url("/back.png")',
                 backgroundRepeat: 'repeat',
                 backgroundSize: '100% auto',
                 backgroundAttachment: 'fixed',

@@ -41,4 +41,4 @@ docker compose build --no-cache
 docker compose up
 ```
 Ensure you have Docker installed
-Website will be accessible at `http://localhost:4000`
+Website will be accessible at `http://localhost:4001`
