@@ -19,7 +19,7 @@ const DelegateTable = () => {
         { title: "UNSC", value: "UNSC" },
         { title: "PEC-YALTA", value: "PEC-YALTA" },
         { title: "CHAOS", value: "CHAOS" },
-        { title: "AIPPM", value: "AIPPM" },
+        { title: "JPC", value: "JPC" },
     ];
     useEffect(() => {
         const handleResize = () => {

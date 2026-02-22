@@ -60,9 +60,9 @@
     }
   },
   {
-    "name": "AIPPM",
-    "imageWhite": "/committee/aippm.png",
-    "imageBlack": "/committee/aippm2.png",
+    "name": "JPC",
+    "imageWhite": "/committee/jpc.png",
+    "imageBlack": "/committee/jpc2.png",
     "data": "TBD",
     "agenda": "TBD",
     "board": {

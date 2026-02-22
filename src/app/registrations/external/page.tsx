@@ -382,7 +382,7 @@ const ExternalDelegateForm = () => {
                                     <option value="UNSC">UNSC</option>
                                     <option value="PEC-YALTA">PEC-YALTA</option>
                                     <option value="CHAOS">CHAOS</option>
-                                    <option value="AIPPM">AIPPM</option>
+                                    <option value="JPC">JPC</option>
                                 </select>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                     {[1, 2, 3].map((allotment) => (

@@ -104,7 +104,7 @@ const AdminPage = () => {
     const [selectedCommitteeForEdit, setSelectedCommitteeForEdit] = useState<string>("");
     const [showCustomPortfolio, setShowCustomPortfolio] = useState(false);
     const [customPortfolioValue, setCustomPortfolioValue] = useState("");
-    const ALL_COMMITTEES = ["UNGA", "SOCHUM", "UNSC", "PEC-YALTA", "CHAOS", "AIPPM"];
+    const ALL_COMMITTEES = ["UNGA", "SOCHUM", "UNSC", "PEC-YALTA", "CHAOS", "JPC"];
     const getCommitteesFromPreferences = (delegate: Delegate): string[] => {
         const prefs = delegate.committee_preferences;
         if (!prefs || Array.isArray(prefs)) {
