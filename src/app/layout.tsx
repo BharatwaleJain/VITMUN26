@@ -16,6 +16,7 @@ export const viewport: Viewport = {
     width: 'device-width',
     initialScale: 1,
 };
+const siteUrl = process.env.NEXT_SITE_URL || "https://vitmun.vit.ac.in";
 export const metadata: Metadata = {
     title: "VITMUN'26 | Model United Nations",
     description: `Charting peace on a steady course. Through every voice, a path refined, Where silence speaks, and fears are shed. A handshake seals what hearts convey, Uniting minds where tensions lay.`,
@@ -28,20 +29,22 @@ export const metadata: Metadata = {
         "MUN",
         "Vellore Institute of Technology",
     ],
-    metadataBase: new URL("https://vitmun.vit.ac.in"),
-    authors: [{ name: "VITMUN Team", url: "https://vitmun.vit.ac.in" }],
+    alternates: {
+        canonical: siteUrl,
+    },
+    metadataBase: new URL(siteUrl),
     openGraph: {
         title: "VITMUN'26 | Model United Nations",
         description:
             "Charting peace on a steady course. Through every voice, a path refined, Where silence speaks, and fears are shed. A handshake seals what hearts convey, Uniting minds where tensions lay.",
-        url: "https://vitmun.vit.ac.in",
+        url: siteUrl,
         siteName: "VITMUN'26",
         images: [
             {
-                url: "https://vitmun.vit.ac.in/poster.png",
-                width: 600,
-                height: 600,
-                alt: "VITMUN'26 Team Poster",
+                url: "/opengraph.png",
+                width: 1200,
+                height: 630,
+                alt: "VITMUN'26 | Model United Nations",
                 type: "image/png",
             },
         ],
@@ -52,7 +55,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "VITMUN'26 | Model United Nations",
         description: "Where your voice matters. Join the debate!",
-        images: ["/team.png"],
+        images: ["/opengraph.png"],
     },
 };
 export default function RootLayout({

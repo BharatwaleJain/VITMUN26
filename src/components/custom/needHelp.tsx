@@ -86,7 +86,7 @@ const NeedHelp = () => {
                         transition={{ duration: 0.5, delay: 0.5 }}
                         viewport={{ once: true }}
                     >
-                        <div className="w-[60%] md:w-[70%] mx-auto h-[80%] border-2 border-[#FF0040] p-2 md:p-4 rounded-2xl">
+                        <div className="w-[60%] md:w-[70%] mx-auto h-[80%] p-2 md:p-4 rounded-2xl">
                             <Image
                                 width={500}
                                 height={500}

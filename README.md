@@ -24,6 +24,7 @@ MONGO_INITDB_ROOT_USERNAME=your_mongo_root_username
 MONGO_INITDB_ROOT_PASSWORD=your_mongo_root_password
 ADMIN_USERNAME=your_admin_username
 ADMIN_PASSWORD=your_admin_password
+NEXT_SITE_URL=your_next_site_url
 ```
 
 ### Run locally using Node.js
