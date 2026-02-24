@@ -349,7 +349,7 @@ const ExternalDelegateForm = () => {
                                 type="button"
                                 size="xsm"
                                 className="ml-4 mt-[0.33rem]"
-                                onClick={() => window.open("/coming-soon", "_blank")}
+                                onClick={() => window.open("/delegate-matrix", "_blank")}
                             >
                                 DELEGATE MATRIX
                             </Button>

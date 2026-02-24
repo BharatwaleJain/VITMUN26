@@ -86,10 +86,10 @@ export default function Navbar() {
                             {isDropdownOpen && (
                                 <ul className="absolute top-full mt-2 bg-white border border-gray-200 shadow-lg rounded-lg w-[18vw]">
                                     <li className="px-4 py-2 hover:text-[#FF0040]">
-                                        <Link href="/coming-soon">CONFERENCE BROCHURE</Link>
+                                        <Link href="/brochure" target="_blank">CONFERENCE BROCHURE</Link>
                                     </li>
                                     <li className="px-4 py-2 hover:text-[#FF0040]">
-                                        <Link href="/coming-soon">DELEGATE MATRIX</Link>
+                                        <Link href="/delegate-matrix" target="_blank">DELEGATE MATRIX</Link>
                                     </li>
                                     <li className="px-4 py-2 hover:text-[#FF0040]">
                                         <Link href="/coming-soon">BACKGROUND GUIDES</Link>
@@ -143,7 +143,8 @@ export default function Navbar() {
                                             <ul className="mt-2  w-[70vw]">
                                                 <li className="px-4 py-2 hover:text-[#FF0040] text-[2.5vh]">
                                                     <Link
-                                                        href="/coming-soon"
+                                                        href="/brochure"
+                                                        target="_blank"
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             toggleMenu();
@@ -154,7 +155,8 @@ export default function Navbar() {
                                                 </li>
                                                 <li className="px-4 py-2 hover:text-[#FF0040] text-[2.5vh]">
                                                     <Link
-                                                        href="/coming-soon"
+                                                        href="/delegate-matrix"
+                                                        target="_blank"
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             toggleMenu();

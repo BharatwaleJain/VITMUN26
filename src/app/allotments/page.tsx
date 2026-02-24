@@ -19,7 +19,7 @@ const Page = () => {
                 </h1>
                 <button
                     className="text-white bg-[#FF0040] hover:shadow-lg hover:bg-[#C73C42] shadow-[#FF0040CC] rounded-md py-2 transition-all px-4 mx-6"
-                    onClick={() => router.push("/coming-soon")}
+                    onClick={() => router.push("/delegate-matrix")}
                 >
                     DELEGATE MATRIX
                 </button>
