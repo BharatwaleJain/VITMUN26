@@ -17,22 +17,24 @@ const lato = Lato({
 });
 type BoardPosition =
     | { Chairperson: string; "Vice-Chairperson": string; Director: string }
-    | { President: string; "Vice-President": string; Director: string }
-    | { Moderator: string; "Deputy Moderator": string; Scribe: string };
+    | { Chairperson: string; "Vice-Chairperson": string; Directors: string }
+    | { "Co-Chairpersons": string; Director: string }
+    | { "Co-Chairpersons": string; Scribe: string }
+    | { President: string; "Vice-President": string; Director: string };
 interface Committee {
     name: string;
     imageWhite: string;
     imageBlack: string;
-    data: string;
+    date: string;
     agenda: string;
     board: BoardPosition;
 }
 const committees: Committee[] = rawCommittees as Committee[];
 const CommitteesPage = () => {
     const [selectedCommittee, setSelectedCommittee] = useState<{
-        data: string; name: string, agenda: string, board: { [key: string]: string }
+        date: string; name: string, agenda: string, board: { [key: string]: string }
     } | null>(null);
-    const handleCommitteeClick = (committee: { name: string, agenda: string, data: string, board: { [key: string]: string } }) => {
+    const handleCommitteeClick = (committee: { name: string, agenda: string, date: string, board: { [key: string]: string } }) => {
         setSelectedCommittee(committee);
     };
     const closeModal = () => {
@@ -58,7 +60,7 @@ const CommitteesPage = () => {
                             onClick={() => handleCommitteeClick({
                                 name: committee.name,
                                 agenda: committee.agenda,
-                                data: committee.data,
+                                date: committee.date,
                                 board: committee.board
                             })}
                             isSelected={selectedCommittee?.name === committee.name}
@@ -80,12 +82,17 @@ const CommitteesPage = () => {
                                 <Image src="/cross.svg" alt="Close" width={36} height={36} />
                             </button>
                             <h2 className="text-3xl font-bold mb-4">{selectedCommittee.name}</h2>
-                            <p className="text-lg mb-4">
-                                <strong>Agenda:</strong> {selectedCommittee.agenda}
+                            <p className="text-lg mb-2 whitespace-pre-line">
+                                <strong>Agenda :</strong> {selectedCommittee.agenda}
                             </p>
+                            {selectedCommittee?.date && (
+                                <p className="mb-2">
+                                    <strong>Freeze Date :</strong> {selectedCommittee.date}
+                                </p>
+                            )}
                             {Object.entries(selectedCommittee.board).map(([position, person]) => (
                                 <p key={position} className="mb-2">
-                                    <strong>{position}:</strong> {person}
+                                    <strong>{position} :</strong> {person}
                                 </p>
                             ))}
                         </div>

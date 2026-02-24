@@ -86,10 +86,10 @@ export default function Navbar() {
                             {isDropdownOpen && (
                                 <ul className="absolute top-full mt-2 bg-white border border-gray-200 shadow-lg rounded-lg w-[18vw]">
                                     <li className="px-4 py-2 hover:text-[#FF0040]">
-                                        <Link href="/brochure" target="_blank">CONFERENCE BROCHURE</Link>
+                                        <Link href="/brochure" target="_blank" rel="noopener noreferrer">CONFERENCE BROCHURE</Link>
                                     </li>
                                     <li className="px-4 py-2 hover:text-[#FF0040]">
-                                        <Link href="/delegate-matrix" target="_blank">DELEGATE MATRIX</Link>
+                                        <Link href="/delegate-matrix" target="_blank" rel="noopener noreferrer">DELEGATE MATRIX</Link>
                                     </li>
                                     <li className="px-4 py-2 hover:text-[#FF0040]">
                                         <Link href="/coming-soon">BACKGROUND GUIDES</Link>
@@ -145,6 +145,7 @@ export default function Navbar() {
                                                     <Link
                                                         href="/brochure"
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             toggleMenu();
@@ -157,6 +158,7 @@ export default function Navbar() {
                                                     <Link
                                                         href="/delegate-matrix"
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             toggleMenu();
@@ -190,7 +192,7 @@ export default function Navbar() {
                                     </Link>
                                 </li>
                             </ul>
-                            <Link target="_blank" href="/pay" passHref className="mt-4">
+                            <Link href="/pay" target="_blank" rel="noopener noreferrer" className="mt-4">
                                 <button onClick={toggleMenu} className="bg-[#FF0040] w-full text-[3vh] p-4 text-white rounded-md hover:bg-[#C73C42] transition font-bebas shadow-md shadow-[#FF004080]">
                                     PAY NOW
                                 </button>

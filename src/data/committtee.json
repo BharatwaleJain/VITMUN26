@@ -1,74 +1,71 @@
 [
-  {
-    "name": "CHAOS",
-    "imageWhite": "/committee/chaos.png",
-    "imageBlack": "/committee/chaos2.png",
-    "data": "TBD",
-    "agenda": "TBD",
-    "board": {
-      "Chairperson": "TBD",
-      "Vice-Chairperson": "TBD",
-      "Director": "TBD"
+    {
+        "name": "CHAOS",
+        "imageWhite": "/committee/chaos.png",
+        "imageBlack": "/committee/chaos2.png",
+        "date": "",
+        "agenda": "1956",
+        "board": {
+            "Chairperson": "Ayush R",
+            "Vice-Chairperson": "Raghav Subramaniam",
+            "Directors": "Rithi Kandasamy and Swaraj Rane"
+        }
+    },
+    {
+        "name": "PEC-YALTA",
+        "imageWhite": "/committee/pec-yalta.png",
+        "imageBlack": "/committee/pec-yalta2.png",
+        "date": "5th February 1945",
+        "agenda": "Addressing the post war geographic, economic, social and political division of territories following the Second World War",
+        "board": {
+            "Co-Chairpersons": "Gowtham Srinivas and Kathiyayini Sivakumar",
+            "Director": "Anushri Murali"
+        }
+    },
+    {
+        "name": "SOCHUM",
+        "imageWhite": "/committee/sochum.png",
+        "imageBlack": "/committee/sochum2.png",
+        "date": "11th November 2024",
+        "agenda": "Countering the use of information and communications technologies for criminal purposes",
+        "board": {
+            "Co-Chairpersons": "Sashank Srinivas and Siddharth Bandam",
+            "Director": "Parnika Prakash"
+        }
+    },
+    {
+        "name": "UNSC",
+        "imageWhite": "/committee/unsc.png",
+        "imageBlack": "/committee/unsc2.png",
+        "date": "",
+        "agenda": "Meeting of the UNSC on 13th October 1956",
+        "board": {
+            "President": "Fazil Razak",
+            "Vice-President": "Raghav Mittal",
+            "Director": "Shivam Gupta"
+        }
+    },
+    {
+        "name": "UNGA",
+        "imageWhite": "/committee/unga.png",
+        "imageBlack": "/committee/unga2.png",
+        "date": "",
+        "agenda": "1. Sovereignty and the Burden of Obligation\n2. The Ontology of Statehood",
+        "board": {
+            "Chairperson": "Aritra Karak",
+            "Vice-Chairperson": "Avyukt Harsh Agrawal",
+            "Director": "Sairam Dhal"
+        }
+    },
+    {
+        "name": "JPC",
+        "imageWhite": "/committee/jpc.png",
+        "imageBlack": "/committee/jpc2.png",
+        "date": "",
+        "agenda": "TBD",
+        "board": {
+            "Co-Chairpersons": "Aaron Mirza and Ravi Vatsan",
+            "Scribe": "Aayan Mohanty"
+        }
     }
-  },
-  {
-    "name": "PEC-YALTA",
-    "imageWhite": "/committee/pec-yalta.png",
-    "imageBlack": "/committee/pec-yalta2.png",
-    "data": "TBD",
-    "agenda": "TBD",
-    "board": {
-      "Chairperson": "TBD",
-      "Vice-Chairperson": "TBD",
-      "Director": "TBD"
-    }
-  },
-  {
-    "name": "SOCHUM",
-    "imageWhite": "/committee/sochum.png",
-    "imageBlack": "/committee/sochum2.png",
-    "data": "TBD",
-    "agenda": "TBD",
-    "board": {
-      "Chairperson": "TBD",
-      "Vice-Chairperson": "TBD",
-      "Director": "TBD"
-    }
-  },
-  {
-    "name": "UNSC",
-    "imageWhite": "/committee/unsc.png",
-    "imageBlack": "/committee/unsc2.png",
-    "data": "TBD",
-    "agenda": "TBD",
-    "board": {
-      "Chairperson": "TBD",
-      "Vice-Chairperson": "TBD",
-      "Director": "TBD"
-    }
-  },
-  {
-    "name": "UNGA",
-    "imageWhite": "/committee/unga.png",
-    "imageBlack": "/committee/unga2.png",
-    "data": "TBD",
-    "agenda": "TBD",
-    "board": {
-      "Chairperson": "TBD",
-      "Vice-Chairperson": "TBD",
-      "Director": "TBD"
-    }
-  },
-  {
-    "name": "JPC",
-    "imageWhite": "/committee/jpc.png",
-    "imageBlack": "/committee/jpc2.png",
-    "data": "TBD",
-    "agenda": "TBD",
-    "board": {
-      "Chairperson": "TBD",
-      "Vice-Chairperson": "TBD",
-      "Director": "TBD"
-    }
-  }
 ]

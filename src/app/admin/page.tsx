@@ -1112,7 +1112,7 @@ const AdminPage = () => {
                         <h2 className={`${latoBold.className} text-2xl md:text-3xl mb-6`}>
                             Delegations
                             <span className="text-gray-400 text-lg ml-2">({delegations.length})</span>
-                            <Link href="/ext-del" target="_blank" className="ml-4 px-4 py-2 rounded-md text-sm font-medium bg-[#FF0040] text-white">
+                            <Link href="/ext-del" target="_blank" rel="noopener noreferrer" className="ml-4 px-4 py-2 rounded-md text-sm font-medium bg-[#FF0040] text-white">
                                 Add New
                             </Link>
                         </h2>

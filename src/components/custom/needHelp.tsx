@@ -33,6 +33,7 @@ const NeedHelp = () => {
                                     <a
                                         href="https://www.instagram.com/vitmunsoc?igsh=dDF6bWVoOGxmdW5i"
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         Instagram
                                     </a>
@@ -40,6 +41,7 @@ const NeedHelp = () => {
                                     <a
                                         href="https://www.linkedin.com/company/munsocvit/"
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         LinkedIn
                                     </a>
@@ -50,11 +52,12 @@ const NeedHelp = () => {
                                     <a
                                         href="mailto:help.delegateaffairs@gmail.com"
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         Email
                                     </a>
-                                    .
                                 </span>
+                                .
                             </motion.div>
                             <motion.div
                                 className={`mb-4 md:mb-8 leading-6 md:leading-relaxed ${latoThin.className}`}
