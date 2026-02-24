@@ -87,7 +87,11 @@ const CommitteesPage = () => {
                             </p>
                             {selectedCommittee?.date && (
                                 <p className="mb-2">
-                                    <strong>Freeze Date :</strong> {selectedCommittee.date}
+                                    <strong>
+                                        {selectedCommittee.name === "SOCHUM" 
+                                        ? "Meeting Dated :" 
+                                        : "Freeze Date :"}
+                                    </strong> {selectedCommittee.date}
                                 </p>
                             )}
                             {Object.entries(selectedCommittee.board).map(([position, person]) => (

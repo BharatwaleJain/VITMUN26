@@ -89,16 +89,13 @@ export default function Navbar() {
                                         <Link href="/brochure" target="_blank" rel="noopener noreferrer">CONFERENCE BROCHURE</Link>
                                     </li>
                                     <li className="px-4 py-2 hover:text-[#FF0040]">
-                                        <Link href="/delegate-matrix" target="_blank" rel="noopener noreferrer">DELEGATE MATRIX</Link>
-                                    </li>
-                                    <li className="px-4 py-2 hover:text-[#FF0040]">
                                         <Link href="/coming-soon">BACKGROUND GUIDES</Link>
                                     </li>
                                 </ul>
                             )}
                         </li>
                         <li className="hover:text-[#FF0040]">
-                            <Link href="/allotments">ALLOTMENTS</Link>
+                            <Link href="/allotments" target="_blank" rel="noopener noreferrer">ALLOTMENTS</Link>
                         </li>
                         <li>
                             <Link href="/pay" target="_blank" rel="noopener noreferrer" passHref>
@@ -156,19 +153,6 @@ export default function Navbar() {
                                                 </li>
                                                 <li className="px-4 py-2 hover:text-[#FF0040] text-[2.5vh]">
                                                     <Link
-                                                        href="/delegate-matrix"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            toggleMenu();
-                                                        }}
-                                                    >
-                                                        DELEGATE MATRIX
-                                                    </Link>
-                                                </li>
-                                                <li className="px-4 py-2 hover:text-[#FF0040] text-[2.5vh]">
-                                                    <Link
                                                         href="/coming-soon"
                                                         onClick={(e) => {
                                                             e.stopPropagation();
@@ -185,6 +169,8 @@ export default function Navbar() {
                                 <li>
                                     <Link
                                         href="/allotments"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         onClick={toggleMenu}
                                         className="hover:text-[#FF0040]"
                                     >
