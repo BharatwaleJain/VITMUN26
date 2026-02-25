@@ -11,7 +11,7 @@ const COLLECTION = "delegations";
  * Fetch all delegations
  */
 export async function GET() {
-    const admin = verifyAdminFromCookie();
+    const admin = await verifyAdminFromCookie();
     if (!admin) {
         return errorResponse("Unauthorized", 401);
     }
@@ -29,7 +29,7 @@ export async function GET() {
  * Create a new delegation
  */
 export async function POST(req: NextRequest) {
-    const admin = verifyAdminFromCookie();
+    const admin = await verifyAdminFromCookie();
     if (!admin) {
         return errorResponse("Unauthorized", 401);
     }

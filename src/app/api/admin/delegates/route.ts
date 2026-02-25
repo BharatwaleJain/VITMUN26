@@ -12,7 +12,7 @@ import { verifyAdminFromCookie } from "@/lib/adminAuth";
   Fetch a single delegate by name (case-insensitive)
 */
 export async function GET(req: NextRequest) {
-    const admin = verifyAdminFromCookie();
+    const admin = await verifyAdminFromCookie();
     if (!admin) {
         return errorResponse("Unauthorized", 401);
     }
@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
  * Body: { type: "internal" | "external", ...delegateData }
  */
 export async function POST(req: NextRequest) {
-    const admin = verifyAdminFromCookie();
+    const admin = await verifyAdminFromCookie();
     if (!admin) {
         return errorResponse("Unauthorized", 401);
     }
@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
  * Body: { type: "internal" | "external", name: string, ...fieldsToUpdate }
  */
 export async function PUT(req: NextRequest) {
-    const admin = verifyAdminFromCookie();
+    const admin = await verifyAdminFromCookie();
     if (!admin) {
         return errorResponse("Unauthorized", 401);
     }
@@ -147,7 +147,7 @@ export async function PUT(req: NextRequest) {
  * Body: { type: "internal" | "external", name: string }
  */
 export async function DELETE(req: NextRequest) {
-    const admin = verifyAdminFromCookie();
+    const admin = await verifyAdminFromCookie();
     if (!admin) {
         return errorResponse("Unauthorized", 401);
     }

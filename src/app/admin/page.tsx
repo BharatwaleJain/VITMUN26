@@ -220,7 +220,14 @@ const AdminPage = () => {
             setLoginError("An error occurred during login");
         }
     };
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        try {
+            await fetch("/api/admin/logout", {
+                method: "POST",
+            });
+        } catch (error) {
+            console.error("Logout failed:", error);
+        }
         sessionStorage.removeItem("isAdminLoggedIn");
         setIsAuthenticated(false);
         setExternalDelegates([]);

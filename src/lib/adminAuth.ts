@@ -4,7 +4,7 @@ export function generateAdminToken() {
     return jwt.sign(
         { role: "admin" },
         process.env.JWT_SECRET!,
-        { expiresIn: "2h" }
+        { expiresIn: "1h" }
     );
 }
 export async function verifyAdminFromCookie() {

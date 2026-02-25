@@ -3,7 +3,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { errorResponse } from "../../../../../lib/db";
 import { verifyAdminFromCookie } from "@/lib/adminAuth";
 export async function POST(req: NextRequest) {
-    const admin = verifyAdminFromCookie();
+    const admin = await verifyAdminFromCookie();
     if (!admin) {
         return errorResponse("Unauthorized", 401);
     }
