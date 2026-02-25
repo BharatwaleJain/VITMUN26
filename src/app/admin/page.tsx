@@ -226,7 +226,6 @@ const AdminPage = () => {
         setExternalDelegates([]);
         setInternalDelegates([]);
         setDelegations([]);
-        router.push("/admin");
     };
     const fetchData = async () => {
         try {

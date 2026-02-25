@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { generateAdminToken } from "@/lib/adminAuth";
 export const runtime = "nodejs";
 const { ADMIN_USERNAME, ADMIN_PASSWORD } = process.env;
 export async function POST(req) {
@@ -10,10 +11,18 @@ export async function POST(req) {
                 { status: 401 }
             );
         }
-        return NextResponse.json(
+        const token = generateAdminToken();
+        const response = NextResponse.json(
             { message: "Login successful" },
             { status: 200 }
         );
+        response.cookies.set("admin_token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+            path: "/",
+        });
+        return response;
     } catch (e) {
         return NextResponse.json(
             { message: "Internal Server Error! Please try again later." },

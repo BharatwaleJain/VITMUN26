@@ -1,6 +1,12 @@
 import clientPromise from "../../../../../lib/mongodb";
 import { NextResponse, NextRequest } from "next/server";
+import { errorResponse } from "../../../../../lib/db";
+import { verifyAdminFromCookie } from "@/lib/adminAuth";
 export async function POST(req: NextRequest) {
+    const admin = verifyAdminFromCookie();
+    if (!admin) {
+        return errorResponse("Unauthorized", 401);
+    }
     try {
         const client = await clientPromise;
         const db = client.db("delegateallotments");

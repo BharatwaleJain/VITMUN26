@@ -4,12 +4,17 @@ import {
     successResponse,
     errorResponse,
 } from "../../../../../lib/db";
+import { verifyAdminFromCookie } from "@/lib/adminAuth";
 const COLLECTION = "delegations";
 /**
  * GET /api/admin/delegations
  * Fetch all delegations
  */
 export async function GET() {
+    const admin = verifyAdminFromCookie();
+    if (!admin) {
+        return errorResponse("Unauthorized", 401);
+    }
     try {
         const collection = await getCollection(COLLECTION);
         const data = await collection.find({}).toArray();
@@ -24,6 +29,10 @@ export async function GET() {
  * Create a new delegation
  */
 export async function POST(req: NextRequest) {
+    const admin = verifyAdminFromCookie();
+    if (!admin) {
+        return errorResponse("Unauthorized", 401);
+    }
     try {
         const body = await req.json();
         const { organisation_name, head_delegate, email_id, contact_number, delegation_strength } = body;

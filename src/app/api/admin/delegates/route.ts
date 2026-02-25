@@ -6,11 +6,16 @@ import {
     DelegateType,
     getCollectionName,
 } from "../../../../../lib/db";
+import { verifyAdminFromCookie } from "@/lib/adminAuth";
 /**
   GET /api/admin/delegates?type=internal|external
   Fetch a single delegate by name (case-insensitive)
 */
 export async function GET(req: NextRequest) {
+    const admin = verifyAdminFromCookie();
+    if (!admin) {
+        return errorResponse("Unauthorized", 401);
+    }
     try {
         const { searchParams } = new URL(req.url);
         const type = searchParams.get("type") as DelegateType;
@@ -44,6 +49,10 @@ export async function GET(req: NextRequest) {
  * Body: { type: "internal" | "external", ...delegateData }
  */
 export async function POST(req: NextRequest) {
+    const admin = verifyAdminFromCookie();
+    if (!admin) {
+        return errorResponse("Unauthorized", 401);
+    }
     try {
         const body = await req.json();
         const { type, ...delegateData } = body;
@@ -79,6 +88,10 @@ export async function POST(req: NextRequest) {
  * Body: { type: "internal" | "external", name: string, ...fieldsToUpdate }
  */
 export async function PUT(req: NextRequest) {
+    const admin = verifyAdminFromCookie();
+    if (!admin) {
+        return errorResponse("Unauthorized", 401);
+    }
     try {
         const body = await req.json();
         const { name, type, ...updateData } = body;
@@ -134,6 +147,10 @@ export async function PUT(req: NextRequest) {
  * Body: { type: "internal" | "external", name: string }
  */
 export async function DELETE(req: NextRequest) {
+    const admin = verifyAdminFromCookie();
+    if (!admin) {
+        return errorResponse("Unauthorized", 401);
+    }
     try {
         const body = await req.json();
         const { name, type } = body;
