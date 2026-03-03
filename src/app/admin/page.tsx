@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lato } from "next/font/google";
-import { Menu, X, Download, LogOut, RefreshCw, Users, Building2, UserCheck } from "lucide-react";
+import { Menu, X, Download, LogOut, RefreshCw, Users, Building2, UserCheck, Eye, EyeOff } from "lucide-react";
 import {
     Sheet,
     SheetClose,
@@ -91,6 +91,7 @@ const AdminPage = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [loginError, setLoginError] = useState("");
     const [externalDelegates, setExternalDelegates] = useState<Delegate[]>([]);
     const [internalDelegates, setInternalDelegates] = useState<Delegate[]>([]);
@@ -392,8 +393,17 @@ const AdminPage = () => {
         }
         const buffer = await workbook.xlsx.writeBuffer();
         const timestamp = new Date()
-            .toISOString()
-            .replace("T", "_")
+            .toLocaleString("sv-SE", {
+                timeZone: "Asia/Kolkata",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: false,
+            })
+            .replace(" ", "_")
             .substring(0, 16)
             .replaceAll(":", "-");
         saveAs(new Blob([buffer]), `vitmundata_${timestamp}.xlsx`);
@@ -449,7 +459,9 @@ const AdminPage = () => {
                         </p>
                         <form onSubmit={handleLogin} className="space-y-4">
                             <div className="space-y-2">
-                                <Label htmlFor="username" className={latoBold.className}>Username</Label>
+                                <Label htmlFor="username" className={latoBold.className}>
+                                    Username
+                                </Label>
                                 <Input
                                     id="username"
                                     type="text"
@@ -461,16 +473,27 @@ const AdminPage = () => {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="password" className={latoBold.className}>Password</Label>
-                                <Input
-                                    id="password"
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    required
-                                    className="w-full border-gray-300 focus:ring-[#FF0040] focus:border-[#FF0040]"
-                                    placeholder="Enter password"
-                                />
+                                <Label htmlFor="password" className={latoBold.className}>
+                                    Password
+                                </Label>
+                                <div className="relative">
+                                    <Input
+                                        id="password"
+                                        type={showPassword ? "text" : "password"}
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                        className="w-full pr-10 border-gray-300 focus:ring-[#FF0040] focus:border-[#FF0040]"
+                                        placeholder="Enter password"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#FF0040]"
+                                    >
+                                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                                    </button>
+                                </div>
                             </div>
                             {loginError && (
                                 <div className="p-3 rounded bg-red-50 text-red-600 text-sm border border-red-200">
