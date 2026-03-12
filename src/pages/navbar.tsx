@@ -89,7 +89,7 @@ export default function Navbar() {
                                         <Link href="/brochure" target="_blank" rel="noopener noreferrer">CONFERENCE BROCHURE</Link>
                                     </li>
                                     <li className="px-4 py-2 hover:text-[#FF0040]">
-                                        <Link href="/coming-soon">BACKGROUND GUIDES</Link>
+                                        <Link href="/guides" target="_blank" rel="noopener noreferrer">BACKGROUND GUIDES</Link>
                                     </li>
                                 </ul>
                             )}
@@ -153,7 +153,9 @@ export default function Navbar() {
                                                 </li>
                                                 <li className="px-4 py-2 hover:text-[#FF0040] text-[2.5vh]">
                                                     <Link
-                                                        href="/coming-soon"
+                                                        href="/guides"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             toggleMenu();
