@@ -29,6 +29,7 @@ export default function DelegationForm() {
         setFormData({ ...formData, [name]: value });
     };
     const { toast } = useToast();
+    const isRegistrationOpen = false;
     const validateForm = () => {
         const newErrors: Record<string, string> = {};
         if (!formData.organisationName.trim())
@@ -103,15 +104,18 @@ export default function DelegationForm() {
         <>
             <Navbar />
             <div className="px-4 sm:px-8 lg:px-20 pt-[7vh]">
-                <h1
-                    className={`${latoBold.className} text-2xl md:text-3xl mb-2 text-leftb mt-8`}
-                >
+                <h1 className={`${latoBold.className} text-2xl md:text-3xl mb-2 text-leftb mt-8`}>
                     Request An Invite
                 </h1>
                 <p className={`${latoThin.className} text-md md:text-lg mb-8`}>
                     Fill out the form below if your delegation hasn&apos;t received an invite
                     yet.
                 </p>
+                {!isRegistrationOpen && (
+                    <div className="mb-6 p-4 rounded-lg bg-red-50 text-red-600 border border-red-200 text-center">
+                        Thank you for your interest. Delegation requests are no longer being accepted.
+                    </div>
+                )}
                 <form
                     onSubmit={handleSubmit}
                     className="space-y-8 bg-white shadow-[0_0_15px_4px_rgba(255,0,64,0.2)] rounded-lg p-6 md:p-10"
@@ -128,6 +132,7 @@ export default function DelegationForm() {
                             type="text"
                             name="organisationName"
                             value={formData.organisationName}
+                            disabled={!isRegistrationOpen}
                             onChange={handleChange}
                             placeholder="Organization"
                             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040] text-black"
@@ -146,6 +151,7 @@ export default function DelegationForm() {
                                 type="text"
                                 name="headDelegate"
                                 value={formData.headDelegate}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Name"
                                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040] text-black"
@@ -162,6 +168,7 @@ export default function DelegationForm() {
                                 type="text"
                                 name="email"
                                 value={formData.email}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Email"
                                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040] text-black"
@@ -178,6 +185,7 @@ export default function DelegationForm() {
                                 type="text"
                                 name="contactNumber"
                                 value={formData.contactNumber}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="WhatsApp Number"
                                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040] text-black"
@@ -194,6 +202,7 @@ export default function DelegationForm() {
                                 type="number"
                                 name="delegationStrength"
                                 value={formData.delegationStrength}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Number"
                                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040]  text-black"
@@ -204,8 +213,8 @@ export default function DelegationForm() {
                     <div className="text-center">
                         <Button
                             type="submit"
-                            disabled={isSubmitting}
-                            className={`bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040] ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                            disabled={isSubmitting || !isRegistrationOpen}
+                            className={`bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040] ${isSubmitting || !isRegistrationOpen ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                             {isSubmitting ? "Submitting..." : "Request"}
                         </Button>

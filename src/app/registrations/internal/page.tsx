@@ -5,7 +5,10 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { Lora } from "next/font/google";
+import { Lato } from "next/font/google";
 import Navbar from "@/pages/navbar";
+const latoThin = Lato({ subsets: ["latin"], weight: "300" });
+const latoBold = Lato({ subsets: ["latin"], weight: "700" });
 const lora = Lora({
     subsets: ["latin"],
     weight: ["700"],
@@ -37,6 +40,7 @@ const InternalDelegateForm = () => {
         exp_eb_text: "",
     });
     const { toast } = useToast();
+    const isRegistrationOpen = false;
     const router = useRouter();
     const validateForm = () => {
         const requiredFields = [
@@ -209,13 +213,18 @@ const InternalDelegateForm = () => {
         <>
             <Navbar />
             <div className="px-4 sm:px-8 lg:px-20 pt-[7vh] overflow-auto scroll-smooth">
-                <h1 className="text-2xl md:text-3xl font-semibold mb-2 text-left mt-8">
+                <h1 className={`${latoBold.className} text-2xl md:text-3xl mb-2 text-leftb mt-8`}>
                     Internal Individual Registration Form
                 </h1>
-                <p className="text-md md:text-lg font-light mb-6 text-left">
+                <p className={`${latoThin.className} text-md md:text-lg mb-8`}>
                     Fill out the form below if you are interested in participating at
                     VITMUN&apos;26.
                 </p>
+                {!isRegistrationOpen && (
+                    <div className="mb-6 p-4 rounded-lg bg-red-50 text-red-600 border border-red-200 text-center">
+                        Thank you for your interest. Internal individual registrations are no longer being accepted.
+                    </div>
+                )}
                 <form
                     onSubmit={handleSubmit}
                     className="space-y-8 bg-white shadow-[0_0_15px_4px_rgba(255,0,64,0.2)] rounded-lg p-6 md:p-10"
@@ -233,6 +242,7 @@ const InternalDelegateForm = () => {
                                 type="text"
                                 name="participant_name"
                                 value={formData.participant_name}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Name"
                                 className="w-full border rounded-lg px-4 py-2  text-black focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
@@ -250,6 +260,7 @@ const InternalDelegateForm = () => {
                                 type="text"
                                 name="registration_number"
                                 value={formData.registration_number}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 required
                                 placeholder="2XBXX1234"
@@ -263,6 +274,7 @@ const InternalDelegateForm = () => {
                             <select
                             name="gender"
                             value={formData.gender}
+                            disabled={!isRegistrationOpen}
                             onChange={handleChange}
                             className="w-full border rounded-lg px-4 py-2"
                             required
@@ -284,6 +296,7 @@ const InternalDelegateForm = () => {
                                 type="tel"
                                 name="contact_number"
                                 value={formData.contact_number}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="WhatsApp Number"
                                 className="w-full border rounded-lg px-4 py-2  text-black focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
@@ -301,6 +314,7 @@ const InternalDelegateForm = () => {
                                 type="email"
                                 name="email_id"
                                 value={formData.email_id}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Use VIT Email ID"
                                 className="w-full border rounded-lg px-4 py-2  text-black focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
@@ -338,6 +352,7 @@ const InternalDelegateForm = () => {
                                 <select
                                     name={`committee_preference_${pref}`}
                                     value={formData[`committee_preference_${pref}`]}
+                                    disabled={!isRegistrationOpen}
                                     onChange={handleChange}
                                     className="w-full border rounded-lg px-4 py-2 mb-4 font-bold focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
                                     required
@@ -361,6 +376,7 @@ const InternalDelegateForm = () => {
                                             value={
                                                 formData[`allotment_preference_${pref}_${allotment}`]
                                             }
+                                            disabled={!isRegistrationOpen}
                                             onChange={handleChange}
                                             placeholder={`Allotment Preference ${allotment}`}
                                             className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
@@ -384,6 +400,7 @@ const InternalDelegateForm = () => {
                                 type="number"
                                 name="exp_delegate_muns"
                                 value={formData.exp_delegate_muns}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Number of MUNs as Delegate"
                                 className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
@@ -393,6 +410,7 @@ const InternalDelegateForm = () => {
                             <textarea
                                 name="exp_delegate_text"
                                 value={formData.exp_delegate_text}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Conference Name/year - Committee - Country - Award(N/A if none)"
                                 className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
@@ -403,6 +421,7 @@ const InternalDelegateForm = () => {
                                 type="number"
                                 name="exp_eb_muns"
                                 value={formData.exp_eb_muns}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Number of MUNs as Executive Board"
                                 className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
@@ -412,6 +431,7 @@ const InternalDelegateForm = () => {
                             <textarea
                                 name="exp_eb_text"
                                 value={formData.exp_eb_text}
+                                disabled={!isRegistrationOpen}
                                 onChange={handleChange}
                                 placeholder="Conference Name/year - Committee - Country - Award(N/A if none)"
                                 className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF0040]"
@@ -424,8 +444,8 @@ const InternalDelegateForm = () => {
                     <div className="text-center">
                         <Button
                             type="submit"
-                            disabled={isSubmitting}
-                            className={`bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040] ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                            disabled={isSubmitting || !isRegistrationOpen}
+                            className={`bg-[#FF0040] hover:bg-[#C73C42] text-white font-semibold py-2 px-6 rounded-lg transition uppercase text-md md:text-lg shadow-md shadow-[#FF0040] ${isSubmitting || !isRegistrationOpen ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                             {isSubmitting ? "Submitting..." : "PRESENT AND VOTING"}
                         </Button>
